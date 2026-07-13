@@ -45,12 +45,17 @@ upload_archive() {
     fi
     
     local response
+    local upload_host="github.com"
+
+    if [[ -n "${GH_API_URL:-}" ]]; then
+        upload_host="$(echo "$GH_API_URL" | sed -E 's#https://api\.##')"
+    fi
     
     response=$(curl -s -X POST \
         -H "Authorization: Bearer $gh_pat" \
         -H "Content-Type: application/octet-stream" \
         -T "${archive_file}" \
-    "https://uploads.${GH_HOST}/organizations/${org_id}/gei/archive?name=${archive_file}")
+    "https://uploads.${upload_host}/organizations/${org_id}/gei/archive?name=${archive_file}")
     
     echo "Archive Upload Response: $response"
     
