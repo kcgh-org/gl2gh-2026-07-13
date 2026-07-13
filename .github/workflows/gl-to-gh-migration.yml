@@ -1164,7 +1164,7 @@ jobs:
           echo "OR"
           echo "gh ado2gh wait-for-migration --migration-id <migration-id>"
 
-          if [[ -n "${GITHUB_API_URL:-}" ]]; then
+          if [[ "${GITHUB_API_URL:-https://api.github.com}" != "https://api.github.com" ]]; then
                     printf '\n'
                     echo "================================================================================"
                     echo "# To Monitor status of migration for GitHub Enterprise Cloud with Data Residency"
