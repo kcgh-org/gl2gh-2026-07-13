@@ -39,7 +39,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -249,41 +249,12 @@ jobs:
 
           # Authenticate to GH
           echo "Login to Github"
-          ##################DEBUG
-          echo "env used is ${{ inputs.ENVIRONMENT_NAME }}"
-          echo "GITHUB_API_URL=$GITHUB_API_URL"
-          GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-          echo "GH_HOST=$GH_HOST"
-          ##################DEBUG
-
+          export GITHUB_API_URL="${GH_API_URL:-}"
           if [[ -n "${GITHUB_API_URL:-}" ]]; then
-          
               GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-              ##################DEBUG
-              echo "GITHUB_API_URL=$GITHUB_API_URL"
-              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-              echo "GH_HOST=$GH_HOST"
-              ##################DEBUG
               echo "$GH_PAT" | gh auth login --with-token --hostname "$GH_HOST"
-
-              ##################DEBUG
-              echo "GITHUB_API_URL=$GITHUB_API_URL"
-              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-              echo "GH_HOST=$GH_HOST"
-              ##################DEBUG
-          
           else
-              ##################DEBUG
-              echo "GITHUB_API_URL=$GITHUB_API_URL"
-              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-              echo "GH_HOST=$GH_HOST"
-              ##################DEBUG
               echo "$GH_PAT" | gh auth login --with-token
-              ##################DEBUG
-              echo "GITHUB_API_URL=$GITHUB_API_URL"
-              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
-              echo "GH_HOST=$GH_HOST"
-              ##################DEBUG
           fi
 
           # Install Extensions
@@ -327,7 +298,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -388,6 +359,7 @@ jobs:
           fi
 
           printf '\n'
+          export GITHUB_API_URL="${GH_API_URL:-}"
           echo "Environmental Variables"
           echo "-----------------------"
           echo " - SOURCE_GL_SERVER_URL       = $SOURCE_GL_SERVER_URL"
@@ -465,7 +437,7 @@ jobs:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
   
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
   
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
   
@@ -515,26 +487,18 @@ jobs:
           export SOURCE_GL_SERVER_URL="${SOURCE_GL_SERVER_URL:-}"
           export GITLAB_USERNAME="${GITLAB_USERNAME:-}"
           export GITLAB_API_PRIVATE_TOKEN="${GITLAB_API_PRIVATE_TOKEN:-}"
-  
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
-
+          export GITHUB_API_URL="${GH_API_URL:-}"
           export GITHUB_API_URL="${GITHUB_API_URL:-}"
-  
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
-  
           export AZ_CONTAINER="${AZ_CONTAINER:-}"
-  
           export AWS_BUCKET_NAME="${AWS_BUCKET_NAME:-}"
           export AWS_REGION="${AWS_REGION:-}"
-  
           export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
           export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
-  
           export AZURE_STORAGE_CONNECTION_STRING="${AZURE_STORAGE_CONNECTION_STRING:-}"
-  
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
-  
           export GIT_SIZER_LARGE_FILE_THRESHOLD_BYTES="${GIT_SIZER_LARGE_FILE_THRESHOLD_BYTES:-419430400}"
   
           chmod +x ./config.sh
@@ -696,7 +660,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -736,6 +700,7 @@ jobs:
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
+          export GITHUB_API_URL="${GH_API_URL:-}"
           export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
@@ -818,7 +783,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -866,6 +831,7 @@ jobs:
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
+          export GITHUB_API_URL="${GH_API_URL:-}"
           export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
@@ -947,7 +913,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -995,6 +961,7 @@ jobs:
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
+          export GITHUB_API_URL="${GH_API_URL:-}"
           export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
@@ -1061,7 +1028,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -1192,6 +1159,7 @@ jobs:
           echo "OR"
           echo "gh ado2gh wait-for-migration --migration-id <migration-id>"
 
+          export GITHUB_API_URL="${GH_API_URL:-}"
           if [[ "${GITHUB_API_URL:-https://api.github.com}" != "https://api.github.com" ]]; then
                     printf '\n'
                     echo "================================================================================"
@@ -1253,7 +1221,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -1282,6 +1250,7 @@ jobs:
         run: |
           set -euo pipefail
           unset GH_TOKEN
+          export GITHUB_API_URL="${GH_API_URL:-}"
           if [[ -n "${GITHUB_API_URL:-}" ]]; then
               GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
               echo "$GH_PAT" | gh auth login --with-token --hostname "$GH_HOST"
@@ -1340,7 +1309,7 @@ jobs:
     runs-on: ["${{ inputs.RUNNER_LABEL }}"]
     environment: ${{ inputs.ENVIRONMENT_NAME }}
     env:
-      GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GH_API_URL: ${{ vars.GH_API_URL }}
       INVENTORY_FILE: ${{ inputs.INVENTORY_FILE }}
       GH_TOKEN: ${{ secrets.GH_PAT }}
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
@@ -1365,6 +1334,7 @@ jobs:
         run: |
           set -euo pipefail
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
+          export GITHUB_API_URL="${GH_API_URL:-}"
           export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export GH_TOKEN="${GH_PAT:-}"
           export SOURCE_GL_SERVER_URL="${SOURCE_GL_SERVER_URL:-}"
