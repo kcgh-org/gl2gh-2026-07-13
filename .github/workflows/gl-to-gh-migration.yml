@@ -250,6 +250,7 @@ jobs:
           # Authenticate to GH
           echo "Login to Github"
           ##################DEBUG
+          echo "env used is ${{ inputs.ENVIRONMENT_NAME }}"
           echo "GITHUB_API_URL=$GITHUB_API_URL"
           GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
           echo "GH_HOST=$GH_HOST"
