@@ -238,8 +238,7 @@ while IFS= read -r raw; do
   export TARGET_ARCHIVE_PATH="$archive_path"
   # Running upload script
   script_status_check=0
-  # out="$("$UPLOAD_SCRIPT")" 2>&1 || script_status_check=$?
-  bash -x $UPLOAD_SCRIPT
+  out="$("$UPLOAD_SCRIPT")" 2>&1 || script_status_check=$?
 
   if (( $script_status_check == 0 )); then
     url="$(extract_url "$out")"
