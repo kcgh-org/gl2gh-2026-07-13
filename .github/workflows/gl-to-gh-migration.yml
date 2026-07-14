@@ -1275,8 +1275,8 @@ jobs:
             exit 1
           }
   
+          export GITHUB_API_URL="${GH_API_URL:-}"
           echo "[INFO] MIGRATION_OUTPUT_FILE: $MIGRATION_OUTPUT_FILE"
-  
           chmod +x ./gl2gh-monitor-migration-status.sh
           ./gl2gh-monitor-migration-status.sh
 
