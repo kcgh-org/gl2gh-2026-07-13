@@ -1121,8 +1121,7 @@ jobs:
           total_fail=$(( gen_fail + up_fail + start_fail ))
 
           printf '\n'
-          echo "FAILURES"
-          echo "--------"
+          echo "Migration execution details:"
 
           if [ "$total_fail" -gt 0 ]; then
             printf "Failures detected. Total failed = %s\n" "$total_fail"
