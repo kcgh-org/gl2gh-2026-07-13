@@ -249,12 +249,40 @@ jobs:
 
           # Authenticate to GH
           echo "Login to Github"
+          ##################DEBUG
+          echo "GITHUB_API_URL=$GITHUB_API_URL"
+          GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+          echo "GH_HOST=$GH_HOST"
+          ##################DEBUG
 
           if [[ -n "${GITHUB_API_URL:-}" ]]; then
+          
               GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+              ##################DEBUG
+              echo "GITHUB_API_URL=$GITHUB_API_URL"
+              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+              echo "GH_HOST=$GH_HOST"
+              ##################DEBUG
               echo "$GH_PAT" | gh auth login --with-token --hostname "$GH_HOST"
+
+              ##################DEBUG
+              echo "GITHUB_API_URL=$GITHUB_API_URL"
+              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+              echo "GH_HOST=$GH_HOST"
+              ##################DEBUG
+          
           else
+              ##################DEBUG
+              echo "GITHUB_API_URL=$GITHUB_API_URL"
+              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+              echo "GH_HOST=$GH_HOST"
+              ##################DEBUG
               echo "$GH_PAT" | gh auth login --with-token
+              ##################DEBUG
+              echo "GITHUB_API_URL=$GITHUB_API_URL"
+              GH_HOST="$(echo "$GITHUB_API_URL" | sed -E 's#https://api\.##')"
+              echo "GH_HOST=$GH_HOST"
+              ##################DEBUG
           fi
 
           # Install Extensions
