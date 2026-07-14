@@ -258,12 +258,6 @@ jobs:
           fi
 
           # Install Extensions
-          echo "Status of Fearure flag"
-           curl -i  -H "Authorization: Bearer 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"  https://api.kcghdr.ghe.com/orgs/kcghdr
-
-          echo "Status of gh api /user"
-          gh api /user
-
           gh extension install https://github.com/mona-actions/gh-gitlab-stats || gh extension upgrade gh-gitlab-stats || true
           gh extension install https://github.com/mona-actions/gh-migration-monitor || gh extension upgrade gh-migration-monitor || true
           gh extension install https://github.com/github/gh-ado2gh || gh extension upgrade gh-ado2gh || true
