@@ -789,7 +789,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-     GITHUB_API_URL: ${{ vars.GH_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
