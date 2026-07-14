@@ -45,11 +45,9 @@ upload_archive() {
     fi
     
     local response
-    local upload_host="github.com"
+    local upload_host
 
-    if [[ -n "${GH_API_URL:-}" ]]; then
-        upload_host="$(echo "$GH_API_URL" | sed -E 's#https://api\.##')"
-    fi
+    upload_host="$(echo "$GH_API_URL" | sed -E 's#https://api\.##')"
     
     response=$(curl -s -X POST \
         -H "Authorization: Bearer $gh_pat" \
