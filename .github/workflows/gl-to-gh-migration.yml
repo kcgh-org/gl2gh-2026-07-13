@@ -39,7 +39,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -298,7 +298,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -436,7 +436,7 @@ jobs:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
   
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
   
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
   
@@ -667,7 +667,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -789,7 +789,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+     GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -918,7 +918,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -1032,7 +1032,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -1224,7 +1224,7 @@ jobs:
     env:
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
       GITLAB_USERNAME: ${{ vars.GITLAB_USERNAME }}
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       STORAGE_TYPE: ${{ vars.STORAGE_TYPE }}
       AZ_CONTAINER: ${{ vars.AZ_CONTAINER }}
       AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
@@ -1311,7 +1311,7 @@ jobs:
     runs-on: ["${{ inputs.RUNNER_LABEL }}"]
     environment: ${{ inputs.ENVIRONMENT_NAME }}
     env:
-      GITHUB_API_URL: ${{ vars.GITHUB_API_URL }}
+      GITHUB_API_URL: ${{ vars.GH_API_URL }}
       INVENTORY_FILE: ${{ inputs.INVENTORY_FILE }}
       GH_TOKEN: ${{ secrets.GH_PAT }}
       SOURCE_GL_SERVER_URL: ${{ vars.SOURCE_GL_SERVER_URL }}
