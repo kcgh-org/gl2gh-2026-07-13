@@ -352,7 +352,7 @@ jobs:
             [[ -n ${AWS_SECRET_ACCESS_KEY:-} ]] || { echo "[ERROR] AWS_SECRET_ACCESS_KEY is required"; exit 1; }
             echo "[INFO] STORAGE_TYPE: AWS"
           elif [[ "$STORAGE_TYPE" == "GITHUB" ]]; then
-            echo "[INFO] STORAGE_TYPE: GITHUB"
+            echo "[INFO] STORAGE_TYPE not set. Defaulting to GITHUB."
           else
             echo "[ERROR] STORAGE_TYPE must be GITHUB or AZURE or AWS"
             exit 1
@@ -490,7 +490,6 @@ jobs:
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
           export GITHUB_API_URL="${GH_API_URL:-}"
-          export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
           export AZ_CONTAINER="${AZ_CONTAINER:-}"
           export AWS_BUCKET_NAME="${AWS_BUCKET_NAME:-}"
@@ -701,7 +700,6 @@ jobs:
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
           export GITHUB_API_URL="${GH_API_URL:-}"
-          export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
           # Build gl-exporter image
@@ -832,7 +830,6 @@ jobs:
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
           export GITHUB_API_URL="${GH_API_URL:-}"
-          export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
           # If storage type is selected as Azure or AWS, set required env
@@ -962,7 +959,6 @@ jobs:
           export GH_PAT="${GH_PAT:-}"
           export GH_TOKEN="${GH_TOKEN:-}"
           export GITHUB_API_URL="${GH_API_URL:-}"
-          export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export STORAGE_TYPE="${STORAGE_TYPE:-GITHUB}"
 
           # If storage type is selected as Azure or AWS, set required env
@@ -1335,7 +1331,6 @@ jobs:
           set -euo pipefail
           export INVENTORY_FILE="${INVENTORY_FILE:-}"
           export GITHUB_API_URL="${GH_API_URL:-}"
-          export GITHUB_API_URL="${GITHUB_API_URL:-}"
           export GH_TOKEN="${GH_PAT:-}"
           export SOURCE_GL_SERVER_URL="${SOURCE_GL_SERVER_URL:-}"
           export GITLAB_API_PRIVATE_TOKEN="${GITLAB_API_PRIVATE_TOKEN:-}"
